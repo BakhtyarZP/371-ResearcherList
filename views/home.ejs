@@ -1,0 +1,25 @@
+<% include partials/header %>
+
+<div class="container" id="container">
+<br>
+  <p> <h1 style="color: white;">List of Researchers</h1></p>
+    <% users.forEach(user => { %>
+      <br>
+      <div class="card cards_bg">
+        <div class="d-flex flex-row">
+          
+          <div class="p-2">
+              <h2 class="card-title"> <a href="/user/<%= user._id %>"><%= user.firstname %> <%= user.lastname %></a> </h2>
+              <% if(user.currentEmp){%>
+                <p class="card-text"> Current Employment:- <%= user.currentEmp %>  </p>
+              <% }else{ %>
+                <p class="card-text"> No Employment History Available </p>
+              <% }%>
+          </div>
+        </div>
+      </div>
+      <br><hr>
+    <%}) %>
+  </div>
+    
+<% include partials/footer %>
